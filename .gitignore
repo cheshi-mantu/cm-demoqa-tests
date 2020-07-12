@@ -35,4 +35,5 @@ target/
 .settings/org.eclipse.buildship.core.prefs
 .vscode
 .allure/
-gradlew.bat
+gradlew*
+gradle-wrapper.properties
