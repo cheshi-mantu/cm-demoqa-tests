@@ -51,6 +51,7 @@ dependencies {
     testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
     testImplementation 'io.rest-assured:rest-assured:4.1.2'
     testImplementation 'ch.qos.logback:logback-classic:1.2.3'
+    testImplementation 'org.json:json:20200518'
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
@@ -59,13 +60,13 @@ dependencies {
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
-//this is added to pass the system properties received from the command line when invoking gradle with tests
 tasks.withType(Test) {
     systemProperties = System.properties
 }
 
-task chrome_ind_tests(type: Test) {
+task elements_tests(type: Test) {
     useJUnitPlatform {
-        includeTags 'chrome_ind_tests'
+        includeTags 'elements_tests'
+        includeTags 'forms_tests'
     }
 }
