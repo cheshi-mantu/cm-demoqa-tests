@@ -27,8 +27,8 @@ import static io.qameta.allure.Allure.step;
 @Tag("elements_tests")
 class DemoQaElements extends TestBase {
     @Test
-    @Description("Open main page")
-    @DisplayName("Navigate from main page to Vega 2.0 Brief")
+    @DisplayName("Testbox tests")
+    @Description("Open main page for elements and test textbox")
     void textBoxTest() {
         step ("Open elements page", () -> {
             open("https://demoqa.com/elements");

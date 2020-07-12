@@ -12,16 +12,16 @@ import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
 @Epic("Demo QA - demoqa.com")
-@Feature("Demo QA - demoqa.com :: Forms")
-@Story("Automated tests for Forms")
-@Tag("forms_tests")
-class DemoQaForms extends TestBase {
+@Feature("Demo QA - demoqa.com :: Frames")
+@Story("Automated tests for Frames")
+@Tag("frames_tests")
+class DemoQaFrame extends TestBase {
     @Test
-    @DisplayName("Forms tests")
-    @Description("Open forms page, make tests for filling forms and checks")
+    @DisplayName("Frames tests")
+    @Description("Open frames and windows page, make tests for filling forms and checks")
     void fromTest() {
-        step ("Open froms page", () -> {
-            open("https://demoqa.com/forms");
+        step ("Open frames and windows page", () -> {
+            open("https://demoqa.com/alertsWindows");
         });
     }
 
