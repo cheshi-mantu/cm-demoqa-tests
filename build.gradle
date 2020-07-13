@@ -64,9 +64,12 @@ tasks.withType(Test) {
     systemProperties = System.properties
 }
 
-task elements_tests(type: Test) {
+task demoqa_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'elements_tests'
         includeTags 'forms_tests'
+        includeTags 'windows_tests'
+        includeTags 'frames_tests'
+        includeTags 'alerts_tests'
     }
 }

@@ -13,13 +13,13 @@ import static io.qameta.allure.Allure.step;
 
 @Epic("Demo QA - demoqa.com")
 @Feature("Demo QA - demoqa.com :: Windows")
-@Story("Automated tests for windows")
-@Tag("forms_tests")
+@Story("Automated tests for windows (web)")
+@Tag("windows_tests")
 class DemoQaWindows extends TestBase {
     @Test
-    @DisplayName("Windows tests")
-    @Description("Open Alerts and windows page, make tests for windows")
-    void fromTest() {
+    @DisplayName("Windows tests (web)")
+    @Description("Open Alerts and windows page, make tests for windows (web)")
+    void webWindowsTest() {
         step ("Open Alerts and windows page", () -> {
             open("https://demoqa.com/alertsWindows");
         });
