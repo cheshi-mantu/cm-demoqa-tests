@@ -36,7 +36,7 @@ class DemoQaElements extends TestBase {
     @Description("Open main page, click on Elements widget by class .main-header")
     void elementsPageIsWorking() {
         step ("PREP: Open main page and proceed to /elements", () -> {
-            open(url);
+            open(demoqaUrl);
             $(".card-body").shouldHave(text("Elements")).click();
         });
         step ("CHECK: if Elements page is opened", () -> {
@@ -48,7 +48,7 @@ class DemoQaElements extends TestBase {
     @Description("Open elements page")
     void textBoxTest() {
         step ("PREP: Open Elements page and proceed to text-box by id=item-0", () -> {
-            open(url + "/elements");
+            open(demoqaUrl + "/elements");
         });
         step ("ACT: Open text-box page by id=item-0", () -> {
             $("#item-0").click();
