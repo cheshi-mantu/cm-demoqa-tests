@@ -13,7 +13,6 @@ import static helpers.DriverHelper.*;
 import static helpers.Environment.isVideoOn;
 
 public class TestBase {
-
     @BeforeAll
     public static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
