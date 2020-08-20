@@ -39,7 +39,6 @@ public class CustomWebDriver implements WebDriverProvider {
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--disable-infobars");
-        chromeOptions.addArguments("--lang=ru");
         return chromeOptions;
     }
 
