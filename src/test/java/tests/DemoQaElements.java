@@ -71,7 +71,7 @@ class DemoQaElements extends TestBase {
             $("#permanentAddress").setValue(addressExt);
             $("#submit").click();
         });
-        step ("CHECK: check submited data", () -> {
+        step ("CHECK: check submitted data", () -> {
             $("#output").shouldHave(text(fullName));
             $("#output").shouldHave(text(email));
             $("#output").shouldHave(text(address));
