@@ -54,7 +54,7 @@ class DemoQaElements extends TestBase {
             $("#item-0").click();
         });
         step ("CHECK: text-box area is properly opened: " +
-                "main header has text \'Text Box\', label \'Full Name\' is present", () -> {
+                "main header has text 'Text Box', label 'Full Name' is present", () -> {
             $(".main-header").shouldHave(text("Text Box"));
             $("#userName-label").should(exist);
         });
