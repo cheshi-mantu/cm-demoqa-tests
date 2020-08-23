@@ -44,7 +44,7 @@ class DemoQaElements extends TestBase {
         });
     }
     @Test
-    @DisplayName("Testbox tests")
+    @DisplayName("Textbox tests")
     @Description("Open elements page")
     void textBoxTest() {
         step ("PREP: Open Elements page and proceed to text-box by id=item-0", () -> {
@@ -76,6 +76,22 @@ class DemoQaElements extends TestBase {
             $("#output").shouldHave(text(email));
             $("#output").shouldHave(text(address));
             $("#output").shouldHave(text(addressExt));
+        });
+    }
+    @Test
+    @DisplayName("Checkbox tests")
+    @Description("Check home level")
+    void checkBoxHighestClick() {
+        step ("PREP: Open Elements page and proceed to text-box by id=item-0", () -> {
+            open(demoqaUrl + "/checkbox");
+        });
+        step ("ACT: Click Home checkbox", () -> {
+            $(".rct-checkbox").click();
+        });
+        step ("CHECK: text containing 'home desktop' should appear in wrapper with 'check-box-tree-wrapper' class" , () -> {
+            $("#result").shouldBe(visible);
+            $("#result").shouldHave(text("You have selected"));
+            $("#result").shouldHave(text("home desktop"));
         });
     }
 
