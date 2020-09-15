@@ -45,7 +45,7 @@ class DemoQaElements extends TestBase {
     }
     @Test
     @DisplayName("Textbox tests")
-    @Description("Open elements page")
+    @Description("Open elements page, click 1st item (home), check Home is checked")
     void textBoxTest() {
         step ("PREP: Open Elements page and proceed to text-box by id=item-0", () -> {
             open(demoqaUrl + "/elements");
@@ -92,6 +92,7 @@ class DemoQaElements extends TestBase {
             $("#result").shouldBe(visible);
             $("#result").shouldHave(text("You have selected"));
             $("#result").shouldHave(text("home desktop"));
+
         });
     }
 
