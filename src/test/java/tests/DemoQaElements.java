@@ -7,7 +7,6 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 import utils.RandomUtils;
 
-import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -152,7 +151,10 @@ class DemoQaElements extends TestBase {
     @DisplayName("Web tables line delete test")
     @Description("Delete line for the name from NAME_TO_DELETE variable")
     void webTablesDeleteTest() {
-        final String NAME_TO_DELETE = "Cantrel";
+        final String NAME_TO_DELETE = "Cantrel"; // TODO: make available + NAME_TO_DELETE through System.Properties
+        step ("PREP: Following string is used in the test", () -> {
+            attachAsText("NAME_TO_DELETE", NAME_TO_DELETE);
+        });
         step ("PREP: Open 'Web tables' page ", () -> {
             open(demoqaUrl + "/webtables");
         });
@@ -167,6 +169,36 @@ class DemoQaElements extends TestBase {
         });
         step ("CHECK: table should not contain lines with " + NAME_TO_DELETE, () -> {
             $(".rt-table").shouldNotHave(text(NAME_TO_DELETE));
+        });
+
+    }
+
+    @Test
+    @DisplayName("Web tables search test")
+    @Description("Filter web table by STRING_TO_FILTER_BY, check content by STRING_TO_CHECK")
+    void webTablesSearchTest() {
+        final String STRING_TO_FILTER_BY = "Legal"; // TODO: make available STRING_TO_FILTER_BY through System.Properties
+        final String STRING_TO_CHECK = "Gentry"; // TODO: make available STRING_TO_CHECK through System.Properties
+        final String STRING_TO_CHECK_IS_ABSENT = "Cantrell"; // TODO: make available STRING_TO_CHECK_IS_ABSENT through System.Properties
+        step ("PREP: Following strings are used in the test", () -> {
+            attachAsText("Filtering table by STRING_TO_FILTER_BY with value", STRING_TO_FILTER_BY);
+            attachAsText("Checking result by STRING_TO_CHECK with value", STRING_TO_CHECK);
+        });
+        step ("PREP: Open 'Web tables' page ", () -> {
+            open(demoqaUrl + "/webtables");
+        });
+        step ("CHECK: if Web tables page is properly opened: " +
+                "main header has text 'Web tables'", () -> {
+            $(".main-header").shouldHave(text("Web tables"));
+        });
+
+        step ("ACT: enter search string " + STRING_TO_FILTER_BY + " to dedicated field" , () -> {
+            $("#searchBox").setValue(STRING_TO_FILTER_BY).pressTab();
+        });
+        step ("CHECK: table should contain lines with " + STRING_TO_CHECK, () -> {
+            $(".rt-table").shouldNotHave(text(STRING_TO_CHECK_IS_ABSENT));
+            $(".rt-table").shouldHave(text(STRING_TO_CHECK));
+
         });
 
     }
