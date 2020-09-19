@@ -11,6 +11,7 @@ import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
+import static helpers.AttachmentsHelper.attachAsText;
 import static helpers.Environment.*;
 
 import static io.qameta.allure.Allure.step;
@@ -68,6 +69,10 @@ class DemoQaElements extends TestBase {
             email = RandomUtils.getRandomEmail();
             address = RandomUtils.getRandomString(27);
             addressExt = RandomUtils.getRandomString(15);
+            attachAsText("FullName", fullName);
+            attachAsText("email", email);
+            attachAsText("address", address);
+            attachAsText("extended address", addressExt);
         });
         step ("ACT: fill the form with random data", () -> {
             $("#userName").setValue(fullName);
