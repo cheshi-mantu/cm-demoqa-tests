@@ -82,22 +82,27 @@ class DemoQaElements extends TestBase {
             $("#output").shouldHave(text(addressExt));
         });
     }
+
     @Test
     @DisplayName("Checkbox tests")
     @Description("Check home level")
     void checkBoxHighestClick() {
-        step ("PREP: Open Elements page and proceed to text-box by id=item-0", () -> {
+        step ("PREP: Open Check box page ", () -> {
             open(demoqaUrl + "/checkbox");
         });
-        step ("ACT: Click Home checkbox", () -> {
-            $(".rct-checkbox").click();
+        step ("CHECK: check box page is properly opened: " +
+                "main header has text 'Check Box'", () -> {
+            $(".main-header").shouldHave(text("Check Box"));
         });
-        step ("CHECK: text containing 'home desktop' should appear in wrapper with 'check-box-tree-wrapper' class" , () -> {
-            $("#result").shouldBe(visible);
-            $("#result").shouldHave(text("You have selected"));
-            $("#result").shouldHave(text("home desktop"));
-
+        step ("ACT: Expand full tree for check boxes by clicking '+' sign on the top right", () -> {
+            $("[aria-label='Expand all']").click();
         });
+//        step ("CHECK: text containing 'home desktop' should appear in wrapper with 'check-box-tree-wrapper' class" , () -> {
+//            $("#result").shouldBe(visible);
+//            $("#result").shouldHave(text("You have selected"));
+//            $("#result").shouldHave(text("home desktop"));
+//
+//        });
     }
 
 }
