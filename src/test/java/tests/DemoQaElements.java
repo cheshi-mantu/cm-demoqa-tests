@@ -123,29 +123,30 @@ class DemoQaElements extends TestBase {
     @DisplayName("Radio buttons tests")
     @Description("Enable Yes, then Impressive, then check No is disabled")
     void radioButtonsTests() {
-//        step ("PREP: Open Check box page ", () -> {
-//            open(demoqaUrl + "/radio-button");
-//        });
-//        step ("CHECK: check box page is properly opened: " +
-//                "main header has text 'Check Box'", () -> {
-//            $(".main-header").shouldHave(text("Check Box"));
-//        });
-//        step ("ACT: Expand full tree for check boxes by clicking '+' sign on the top right", () -> {
-//            $("[aria-label='Expand all']").click();
-//        });
-//        step ("CHECK/ACT: if tree is expanded, searching for target check boxes labels: " +
-//                "Notes, Private and Excel file.doc", () -> {
-//            $$(".rct-title").findBy(text("Notes")).click();
-//            $$(".rct-title").findBy(text("Private")).click();
-//            $$(".rct-title").findBy(text("Excel file.doc")).click();
-//        });
-//        step ("CHECK: #result should contain Notes, Private and excelFile" , () -> {
-//            $("#result").shouldBe(visible);
-//            $("#result").shouldHave(text("Notes"));
-//            $("#result").shouldHave(text("Private"));
-//            $("#result").shouldHave(text("excelFile"));
-//
-//        });
+        step ("PREP: Open Radio button page ", () -> {
+            open(demoqaUrl + "/radio-button");
+        });
+        step ("CHECK: if radio button page is properly opened: " +
+                "main header has text 'Radio button'", () -> {
+            $(".main-header").shouldHave(text("Radio button"));
+        });
+        step ("ACT: Click (enable) Yes option for radio button", () -> {
+            $("#yesRadio").sibling(0).click();
+        });
+        step ("CHECK: .text-success area contains word Yes", () -> {
+            $(".text-success").shouldBe(visible);
+            $(".text-success").shouldHave(text("Yes"));
+        });
+        step ("ACT: Click (enable) Impressive option for radio button", () -> {
+            $("#impressiveRadio").sibling(0).click();
+        });
+        step ("CHECK: .text-success area contains word Impressive", () -> {
+            $(".text-success").shouldBe(visible);
+            $(".text-success").shouldHave(text("Impressive"));
+        });
+        step ("CHECK: radio option No is disabled", () -> {
+            $("#noRadio").shouldBe(disabled);
+        });
     }
 
 }
