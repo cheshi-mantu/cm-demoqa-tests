@@ -31,18 +31,22 @@ class DemoQaElements extends TestBase {
     String email = "";
     String address = "";
     String addressExt = "";
+
     @Test
-    @DisplayName("Elements page can be opened")
-    @Description("Open main page, click on Elements widget by class .main-header")
+    @DisplayName("Check if elements page can be opened")
+    @Description("Open main page, click on Elements widget and check page is loaded by class .main-header")
     void elementsPageIsWorking() {
-        step ("PREP: Open main page and proceed to /elements", () -> {
+        step ("PREP: Open main page", () -> {
             open(demoqaUrl);
+        });
+        step ("ACT: proceed to /elements", () -> {
             $(".card-body").shouldHave(text("Elements")).click();
         });
         step ("CHECK: if Elements page is opened", () -> {
             $(".main-header").shouldHave(text("Elements"));
         });
     }
+
     @Test
     @DisplayName("Textbox tests")
     @Description("Open elements page, click 1st item (home), check Home is checked")
