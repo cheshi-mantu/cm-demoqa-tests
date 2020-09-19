@@ -7,6 +7,7 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 import utils.RandomUtils;
 
+import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -85,7 +86,7 @@ class DemoQaElements extends TestBase {
 
     @Test
     @DisplayName("Checkbox tests")
-    @Description("Check home level")
+    @Description("Expand full tree and check Notes, Private and Excel file")
     void checkBoxHighestClick() {
         step ("PREP: Open Check box page ", () -> {
             open(demoqaUrl + "/checkbox");
@@ -97,12 +98,19 @@ class DemoQaElements extends TestBase {
         step ("ACT: Expand full tree for check boxes by clicking '+' sign on the top right", () -> {
             $("[aria-label='Expand all']").click();
         });
-//        step ("CHECK: text containing 'home desktop' should appear in wrapper with 'check-box-tree-wrapper' class" , () -> {
-//            $("#result").shouldBe(visible);
-//            $("#result").shouldHave(text("You have selected"));
-//            $("#result").shouldHave(text("home desktop"));
-//
-//        });
+        step ("CHECK/ACT: if tree is expanded, searching for target check boxes labels: " +
+                "Notes, Private and Excel file.doc", () -> {
+            $$(".rct-title").findBy(text("Notes")).click();
+            $$(".rct-title").findBy(text("Private")).click();
+            $$(".rct-title").findBy(text("Excel file.doc")).click();
+        });
+        step ("CHECK: #result should contain Notes, Private and excelFile" , () -> {
+            $("#result").shouldBe(visible);
+            $("#result").shouldHave(text("Notes"));
+            $("#result").shouldHave(text("Private"));
+            $("#result").shouldHave(text("excelFile"));
+
+        });
     }
 
 }
