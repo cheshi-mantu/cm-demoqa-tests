@@ -202,6 +202,64 @@ class DemoQaElements extends TestBase {
         });
 
     }
+    @Test
+    @DisplayName("Web table add record")
+    @Description("Invoke registration form modal dialogue, " +
+            "fill the fields with randomly generated data" +
+            "Submit form by pressing Submit button")
+    void webTablesAddNewRecordTest() {
+        final String FIRST_NAME = RandomUtils.getRandomString(5);
+        final String LAST_NAME = RandomUtils.getRandomString(12);
+        final String EMPLOYEE_EMAIL = FIRST_NAME + "." + LAST_NAME + "@maildomain.com";
+        final String EMPLOYEE_AGE = String.valueOf(RandomUtils.getRandomInt(18, 90));
+        final String EMPLOYEE_SALARY = String.valueOf(RandomUtils.getRandomInt(1000, 9000));
+        final String EMPLOYEE_DEPARTMENT = "Cleaning";
+
+        step ("PREP: Generating random data to fill the form for adding new record", () -> {
+            attachAsText("First name", FIRST_NAME);
+            attachAsText("Last name", LAST_NAME);
+            attachAsText("email", EMPLOYEE_EMAIL);
+            attachAsText("Employee's age", EMPLOYEE_AGE);
+            attachAsText("Employee's salary", EMPLOYEE_SALARY);
+            attachAsText("Employee's department", EMPLOYEE_DEPARTMENT);
+        });
+        step ("PREP: Open 'Web tables' page ", () -> {
+            open(demoqaUrl + "/webtables");
+        });
+        step ("CHECK: if Web tables page is properly opened: " +
+                "main header has text 'Web tables'", () -> {
+            $(".main-header").shouldHave(text("Web tables"));
+        });
+
+        step ("ACT: press Add button to add new record" , () -> {
+            $("#addNewRecordButton").click();
+        });
+        step ("CHECK: dialogue window (form) should be opened", () -> {
+            $(".modal-content").shouldBe(visible);
+            $(".modal-content").shouldHave(text("Registration form"));
+        });
+        step ("ACT: Filling registration form fields with randomly generated data and submit form" +
+                "by pressing Submit button" , () -> {
+            $("#firstName").setValue(FIRST_NAME);
+            $("#lastName").setValue(LAST_NAME);
+            $("#userEmail").setValue(EMPLOYEE_EMAIL);
+            $("#age").setValue(EMPLOYEE_AGE);
+            $("#salary").setValue(EMPLOYEE_SALARY);
+            $("#department").setValue(EMPLOYEE_DEPARTMENT);
+            $("#submit").click();
+        });
+        step ("CHECK: Modal form disappeared, table is updated with new line", () -> {
+            $(".modal-content").shouldNotBe(visible);
+            $(".rt-table").shouldHave(text(FIRST_NAME));
+            $(".rt-table").shouldHave(text(LAST_NAME));
+            $(".rt-table").shouldHave(text(EMPLOYEE_EMAIL));
+            $(".rt-table").shouldHave(text(EMPLOYEE_AGE));
+            $(".rt-table").shouldHave(text(EMPLOYEE_SALARY));
+            $(".rt-table").shouldHave(text(EMPLOYEE_DEPARTMENT));
+        });
+
+
+    }
 
 }
 
