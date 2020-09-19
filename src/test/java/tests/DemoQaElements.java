@@ -148,6 +148,28 @@ class DemoQaElements extends TestBase {
             $("#noRadio").shouldBe(disabled);
         });
     }
+    @Test
+    @DisplayName("Web tables line delete test")
+    @Description("Delete line for the name from NAME_TO_DELETE variable")
+    void webTablesDeleteTest() {
+        final String NAME_TO_DELETE = "Cantrel";
+        step ("PREP: Open 'Web tables' page ", () -> {
+            open(demoqaUrl + "/webtables");
+        });
+        step ("CHECK: if Web tables page is properly opened: " +
+                "main header has text 'Web tables'", () -> {
+            $(".main-header").shouldHave(text("Web tables"));
+        });
+        step ("ACT: Find line with " + NAME_TO_DELETE + "Press delete icon for", () -> {
+            //both next two lines work equally but let's keep the one that does not use indexes
+//            $$(".rt-tr-group").findBy(text(NAME_TO_DELETE)).$("div div div div span",1).shouldHave(attribute("Title", "Delete")).click();
+            $$(".rt-tr-group").findBy(text(NAME_TO_DELETE)).$$("div div div div span").findBy(attribute("Title", "Delete")).click();
+        });
+        step ("CHECK: table should not contain lines with " + NAME_TO_DELETE, () -> {
+            $(".rt-table").shouldNotHave(text(NAME_TO_DELETE));
+        });
+
+    }
 
 }
 
