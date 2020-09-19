@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.conditions.ExactText;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -11,6 +12,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 import static helpers.AttachmentsHelper.attachAsText;
+import static helpers.AttachmentsHelper.attachScreenshot;
 import static helpers.Environment.*;
 
 import static io.qameta.allure.Allure.step;
@@ -246,6 +248,7 @@ class DemoQaElements extends TestBase {
             $("#age").setValue(EMPLOYEE_AGE);
             $("#salary").setValue(EMPLOYEE_SALARY);
             $("#department").setValue(EMPLOYEE_DEPARTMENT);
+            attachScreenshot(FIRST_NAME + "_" + LAST_NAME);
             $("#submit").click();
         });
         step ("CHECK: Modal form disappeared, table is updated with new line", () -> {
@@ -257,8 +260,39 @@ class DemoQaElements extends TestBase {
             $(".rt-table").shouldHave(text(EMPLOYEE_SALARY));
             $(".rt-table").shouldHave(text(EMPLOYEE_DEPARTMENT));
         });
-
-
+    }
+    @Test
+    @DisplayName("Buttons tests")
+    @Description("Double left click, right click, single left click")
+    void buttonsClicksTests() {
+        step ("PREP: Open Buttons page ", () -> {
+            open(demoqaUrl + "/buttons");
+        });
+        step ("CHECK: if Buttons page is properly opened: " +
+                "main header has text 'Buttons'", () -> {
+            $(".main-header").shouldHave(text("Buttons"));
+        });
+        step ("ACT: Double click the button with text 'Double click me' by id", () -> {
+            $("#doubleClickBtn").doubleClick();
+        });
+        step ("CHECK: message appeared and contains text 'You have done a double click'", () -> {
+            $("#doubleClickMessage").shouldBe(visible);
+            $("#doubleClickMessage").shouldHave(text("You have done a double click"));
+        });
+        step ("ACT: Perform context click for the button with text 'Right click me' by id", () -> {
+            $("#rightClickBtn").contextClick();
+        });
+        step ("CHECK: message appeared and contains text 'You have done a right click'", () -> {
+            $("#rightClickMessage").shouldBe(visible);
+            $("#rightClickMessage").shouldHave(text("You have done a right click"));
+        });
+        step ("ACT: Perform left click for the button with text 'Click me' by text as id is dynamic", () -> {
+            $$("button.btn.btn-primary").findBy(exactText("Click Me")).click();
+        });
+        step ("CHECK: message appeared and contains text 'You have done a dynamic click'", () -> {
+            $("#dynamicClickMessage").shouldBe(visible);
+            $("#dynamicClickMessage").shouldHave(text("You have done a dynamic click"));
+        });
     }
 
 }
