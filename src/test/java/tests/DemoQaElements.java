@@ -48,13 +48,13 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
-    @DisplayName("Textbox tests")
-    @Description("Open elements page, click 1st item (home), check Home is checked")
+    @DisplayName("Text box test")
+    @Description("Open elements page, go to text box page click 1st item (home), check Home is checked")
     void textBoxTest() {
-        step ("PREP: Open Elements page and proceed to text-box by id=item-0", () -> {
+        step ("PREP: Open Elements page", () -> {
             open(demoqaUrl + "/elements");
         });
-        step ("ACT: Open text-box page by id=item-0", () -> {
+        step ("PREP: Open text-box page by id=item-0", () -> {
             $("#item-0").click();
         });
         step ("CHECK: text-box area is properly opened: " +
