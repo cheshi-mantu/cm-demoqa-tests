@@ -90,9 +90,10 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
-    @DisplayName("Checkbox tests")
-    @Description("Expand full tree and check Notes, Private and Excel file")
-    void checkBoxHighestClick() {
+    @DisplayName("Checkboxes test")
+    @Description("Expand full tree and check Notes, Private and Excel file, " +
+            "then assert that #result has these names in the text")
+    void checkBoxSeveralElementsCheck() {
         step ("PREP: Open Check box page ", () -> {
             open(demoqaUrl + "/checkbox");
         });
@@ -116,6 +117,35 @@ class DemoQaElements extends TestBase {
             $("#result").shouldHave(text("excelFile"));
 
         });
+    }
+
+    @Test
+    @DisplayName("Radio buttons tests")
+    @Description("Enable Yes, then Impressive, then check No is disabled")
+    void radioButtonsTests() {
+//        step ("PREP: Open Check box page ", () -> {
+//            open(demoqaUrl + "/radio-button");
+//        });
+//        step ("CHECK: check box page is properly opened: " +
+//                "main header has text 'Check Box'", () -> {
+//            $(".main-header").shouldHave(text("Check Box"));
+//        });
+//        step ("ACT: Expand full tree for check boxes by clicking '+' sign on the top right", () -> {
+//            $("[aria-label='Expand all']").click();
+//        });
+//        step ("CHECK/ACT: if tree is expanded, searching for target check boxes labels: " +
+//                "Notes, Private and Excel file.doc", () -> {
+//            $$(".rct-title").findBy(text("Notes")).click();
+//            $$(".rct-title").findBy(text("Private")).click();
+//            $$(".rct-title").findBy(text("Excel file.doc")).click();
+//        });
+//        step ("CHECK: #result should contain Notes, Private and excelFile" , () -> {
+//            $("#result").shouldBe(visible);
+//            $("#result").shouldHave(text("Notes"));
+//            $("#result").shouldHave(text("Private"));
+//            $("#result").shouldHave(text("excelFile"));
+//
+//        });
     }
 
 }
