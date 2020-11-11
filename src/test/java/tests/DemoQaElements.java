@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.conditions.ExactText;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import utils.RandomUtils;
@@ -123,6 +122,7 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
+    @AllureId("1229")
     @DisplayName("Radio buttons tests")
     @Description("Enable Yes, then Impressive, then check No is disabled")
     void radioButtonsTests() {
@@ -152,6 +152,7 @@ class DemoQaElements extends TestBase {
         });
     }
     @Test
+    @AllureId("1232")
     @DisplayName("Web tables line delete test")
     @Description("Delete line for the name from NAME_TO_DELETE variable")
     void webTablesDeleteTest() {
@@ -178,6 +179,7 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
+    @AllureId("1230")
     @DisplayName("Web tables search test")
     @Description("Filter web table by STRING_TO_FILTER_BY, check content by STRING_TO_CHECK")
     void webTablesSearchTest() {
@@ -207,6 +209,7 @@ class DemoQaElements extends TestBase {
 
     }
     @Test
+    @AllureId("1233")
     @DisplayName("Web table add record")
     @Description("Invoke registration form modal dialogue, " +
             "fill the fields with randomly generated data" +
@@ -264,6 +267,7 @@ class DemoQaElements extends TestBase {
         });
     }
     @Test
+    @AllureId("1231")
     @DisplayName("Buttons tests")
     @Description("Double left click, right click, single left click")
     void buttonsClicksTests() {
