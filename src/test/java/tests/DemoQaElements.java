@@ -1,10 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.conditions.ExactText;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import utils.RandomUtils;
 
@@ -36,6 +33,7 @@ class DemoQaElements extends TestBase {
     String addressExt = "";
 
     @Test
+    @AllureId("1225")
     @DisplayName("Check if elements page can be opened")
     @Description("Open main page, click on Elements widget and check page is loaded by class .main-header")
     void elementsPageIsWorking() {
@@ -51,7 +49,9 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
-    @DisplayName("Text box test")
+    @AllureId("1226")
+    @DisplayName("text box test")
+    @Story("Automated tests for elementstext boxCheck boxRadio buttonWeb tablesButtonsLinksUpload and downloadDynamic properties")
     @Description("Open elements page, go to text box page click 1st item (home), check Home is checked")
     void textBoxTest() {
         step ("PREP: Open Elements page", () -> {
@@ -91,7 +91,9 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
-    @DisplayName("Checkboxes test")
+    @AllureId("1228")
+    @DisplayName("Chekbox test")
+    @Story("Automated tests for elementstext boxCheck boxRadio buttonWeb tablesButtonsLinksUpload and downloadDynamic properties")
     @Description("Expand full tree and check Notes, Private and Excel file, " +
             "then assert that #result has these names in the text")
     void checkBoxSeveralElementsCheck() {
