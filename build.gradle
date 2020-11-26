@@ -21,8 +21,12 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
-    allureVersion = '2.13.6'
+    allureVersion = '2.13.7'
     junitVersion = '5.6.0'
+    selenideVersion = "5.16.2"
+    restAssuredVersion = "4.3.2"
+    orgJsonVersion = "20201115"
+    orgAspectjVersion = "1.9.6"
 }
 
 repositories {
@@ -41,13 +45,12 @@ allure {
 }
 
 dependencies {
-    testImplementation 'org.aspectj:aspectjweaver:1.9.5'
-    testImplementation 'com.codeborne:selenide:5.15.1'
+    testImplementation "org.aspectj:aspectjweaver:${orgAspectjVersion}"
+    testImplementation "com.codeborne:selenide:${selenideVersion}"
     testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
     testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
-    testImplementation 'io.rest-assured:rest-assured:4.1.2'
     testImplementation 'ch.qos.logback:logback-classic:1.2.3'
-    testImplementation 'org.json:json:20200518'
+    testImplementation "org.json:json:${orgJsonVersion}"
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
