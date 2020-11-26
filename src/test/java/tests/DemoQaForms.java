@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.open;
+import static helpers.AttachmentsHelper.attachScreenshot;
+import static helpers.Environment.demoqaUrl;
 import static io.qameta.allure.Allure.step;
 
 @Epic("Demo QA - demoqa.com")
@@ -21,7 +23,8 @@ class DemoQaForms extends TestBase {
     @Description("Open forms page, make tests for filling forms and checks")
     void fromTest() {
         step ("Open froms page", () -> {
-            open("https://demoqa.com/forms");
+            open(demoqaUrl + "/automation-practice-form");
+            attachScreenshot("Forms practice first screen");
         });
     }
 
