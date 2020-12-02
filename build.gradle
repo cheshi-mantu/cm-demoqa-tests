@@ -21,7 +21,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
-    allureVersion = '2.13.6'
+    allureVersion = '2.13.7'
     junitVersion = '5.6.0'
     selenideVersion = "5.16.2"
     restAssuredVersion = "4.3.2"
@@ -48,7 +48,6 @@ dependencies {
     testImplementation "org.aspectj:aspectjweaver:${orgAspectjVersion}"
     testImplementation "com.codeborne:selenide:${selenideVersion}"
     testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
-//    testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
     testImplementation 'ch.qos.logback:logback-classic:1.2.3'
     testImplementation "org.json:json:${orgJsonVersion}"
 

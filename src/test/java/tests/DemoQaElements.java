@@ -32,7 +32,6 @@ class DemoQaElements extends TestBase {
     String addressExt = "";
 
     @Test
-    @AllureId("1225")
     @DisplayName("Check if elements page can be opened")
     @Description("Open main page, click on Elements widget and check page is loaded by class .main-header")
     void elementsPageIsWorking() {
@@ -48,7 +47,6 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
-    @AllureId("1226")
     @DisplayName("text box test")
     @Story("Automated tests for elementstext boxCheck boxRadio buttonWeb tablesButtonsLinksUpload and downloadDynamic properties")
     @Description("Open elements page, go to text box page click 1st item (home), check Home is checked")
@@ -90,7 +88,6 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
-    @AllureId("1228")
     @DisplayName("Chekbox test")
     @Story("Automated tests for elementstext boxCheck boxRadio buttonWeb tablesButtonsLinksUpload and downloadDynamic properties")
     @Description("Expand full tree and check Notes, Private and Excel file, " +
@@ -122,7 +119,6 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
-    @AllureId("1229")
     @DisplayName("Radio buttons tests")
     @Description("Enable Yes, then Impressive, then check No is disabled")
     void radioButtonsTests() {
@@ -152,7 +148,6 @@ class DemoQaElements extends TestBase {
         });
     }
     @Test
-    @AllureId("1232")
     @DisplayName("Web tables line delete test")
     @Description("Delete line for the name from NAME_TO_DELETE variable")
     void webTablesDeleteTest() {
@@ -179,7 +174,6 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
-    @AllureId("1230")
     @DisplayName("Web tables search test")
     @Description("Filter web table by STRING_TO_FILTER_BY, check content by STRING_TO_CHECK")
     void webTablesSearchTest() {
@@ -209,7 +203,6 @@ class DemoQaElements extends TestBase {
 
     }
     @Test
-    @AllureId("1233")
     @DisplayName("Web table add record")
     @Description("Invoke registration form modal dialogue, " +
             "fill the fields with randomly generated data" +
@@ -267,7 +260,6 @@ class DemoQaElements extends TestBase {
         });
     }
     @Test
-    @AllureId("1231")
     @DisplayName("Buttons tests")
     @Description("Double left click, right click, single left click")
     void buttonsClicksTests() {
@@ -302,4 +294,3 @@ class DemoQaElements extends TestBase {
     }
 
 }
-
