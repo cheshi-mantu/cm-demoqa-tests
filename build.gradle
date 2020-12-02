@@ -23,7 +23,7 @@ targetCompatibility = 1.8
 ext {
     allureVersion = '2.13.7'
     junitVersion = '5.6.0'
-    selenideVersion = "5.16.2"
+    selenideVersion = "5.15.1"
     restAssuredVersion = "4.3.2"
     orgJsonVersion = "20201115"
     orgAspectjVersion = "1.9.6"
