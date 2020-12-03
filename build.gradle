@@ -71,7 +71,7 @@ tasks.withType(Test) {
         showCauses true
         showStackTraces true
     }
-    systemProperty "selenide.fastSetValue","true"
+//    systemProperty "selenide.fastSetValue","true"
     systemProperty "selenide.timeout","10000"
     systemProperty "chromeoptions.args","--disable-notifications"
     systemProperty "chromeoptions.prefs","intl.accept_languages=en"
