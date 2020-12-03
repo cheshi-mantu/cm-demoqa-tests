@@ -3,11 +3,9 @@ package helpers;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import drivers.CustomWebDriver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 
-import static com.codeborne.selenide.Selectors.by;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
