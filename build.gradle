@@ -76,9 +76,10 @@ tasks.withType(Test) {
         showStackTraces true
     }
     systemProperty "selenide.fastSetValue","true"
-    systemProperty "selenide.timeout","4000"
+    systemProperty "selenide.timeout","10000"
     systemProperty "chromeoptions.args","--disable-notifications"
     systemProperty "chromeoptions.prefs","intl.accept_languages=en"
+    systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
 }
 
 task demoqa_tests(type: Test) {
