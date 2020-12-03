@@ -15,12 +15,13 @@ import static helpers.Environment.isVideoOn;
 public class TestBase {
     @BeforeAll
     public static void setUp() {
+        Configuration.startMaximized = true;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
         configureSelenide();
     }
     @BeforeEach
     public void BeforeEachTest(){
-        Configuration.startMaximized = true;
+        System.out.println("Hi there");
     }
     @AfterEach
     public void afterEach(){
