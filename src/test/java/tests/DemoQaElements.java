@@ -193,7 +193,7 @@ class DemoQaElements extends TestBase {
         });
 
         step ("ACT: enter search string " + STRING_TO_FILTER_BY + " to dedicated field" , () -> {
-            $("#searchBox").setValue(STRING_TO_FILTER_BY).pressTab();
+            $("#searchBox").setValue(STRING_TO_FILTER_BY).pressEnter();
         });
         step ("CHECK: table should contain lines with " + STRING_TO_CHECK, () -> {
             $(".rt-table").shouldNotHave(text(STRING_TO_CHECK_IS_ABSENT));
