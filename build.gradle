@@ -65,7 +65,12 @@ tasks.withType(Test) {
     systemProperties = System.properties
     testLogging {
         // set options for log level LIFECYCLE
-        events "started", "failed", "passed", "skipped", "standard_out", "standard_error"
+        events "failed",
+//                "started",
+//                "passed",
+//                "skipped",
+//                "standard_out",
+                "standard_error"
         exceptionFormat "full"
         showExceptions true
         showCauses true
