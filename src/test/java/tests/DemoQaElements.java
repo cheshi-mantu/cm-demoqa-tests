@@ -89,7 +89,7 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
-    @DisplayName("Chekbox test")
+    @DisplayName("Checkbox test")
     @Story("Automated tests for elementstext boxCheck boxRadio buttonWeb tablesButtonsLinksUpload and downloadDynamic properties")
     @Description("Expand full tree and check Notes, Private and Excel file, " +
             "then assert that #result has these names in the text")
