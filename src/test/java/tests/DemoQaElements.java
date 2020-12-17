@@ -43,7 +43,8 @@ class DemoQaElements extends TestBase {
             $(".card-body").shouldHave(text("Elements")).click();
         });
         step ("CHECK: if Elements page is opened", () -> {
-            $(".main-header").shouldHave(text("Elements"));
+            $(".main-header").shouldHave(text("Web elements"));
+//            $(".main-header").shouldHave(text("Elements"));
         });
     }
 
