@@ -115,7 +115,8 @@ class DemoQaElements extends TestBase {
             $("#result").shouldBe(visible);
             $("#result").shouldHave(text("Notes"));
             $("#result").shouldHave(text("Private"));
-            $("#result").shouldHave(text("excelFile"));
+//            $("#result").shouldHave(text("excelFile"));
+            $("#result").shouldHave(text("moxelFile"));
 
         });
     }
