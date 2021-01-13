@@ -13,7 +13,7 @@ import static helpers.Environment.*;
 
 import static io.qameta.allure.Allure.step;
 
-@Epic("Demo QA - demoqa.com")
+//@Epic("Demo QA - demoqa.com")
 @Feature("Demo QA - demoqa.com - Elements")
 @Story("Automated tests for elements" +
         "text box" +
