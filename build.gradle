@@ -49,13 +49,18 @@ allure {
 dependencies {
     testImplementation "org.aspectj:aspectjweaver:${orgAspectjVersion}"
     testImplementation "com.codeborne:selenide:${selenideVersion}"
+
     testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
     testImplementation "io.qameta.allure:allure-junit-platform:${allureVersion}"
+    testImplementation "io.qameta.allure:allure-ee-junit-platform:3.28.2"
+
     testImplementation "ch.qos.logback:logback-classic:1.2.3"
     testImplementation "org.slf4j:slf4j-simple:${slfjVersion}"
     testImplementation "org.json:json:${orgJsonVersion}"
+
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
 }
 
 tasks.withType(JavaCompile) {
@@ -81,6 +86,7 @@ tasks.withType(Test) {
     systemProperty "chromeoptions.args","--disable-notifications"
     systemProperty "chromeoptions.prefs","intl.accept_languages=en"
     systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
+
 }
 
 task demoqa_tests(type: Test) {
