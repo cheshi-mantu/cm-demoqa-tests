@@ -53,7 +53,7 @@ dependencies {
 
     testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
     testImplementation "io.qameta.allure:allure-junit-platform:${allureVersion}"
-    testImplementation "io.qameta.allure:allure-ee-junit-platform:3.28.2"
+    testImplementation "io.qameta.allure:allure-ee-junit-platform:3.38.0"
 
     testImplementation "ch.qos.logback:logback-classic:1.2.3"
     testImplementation "org.slf4j:slf4j-simple:${slfjVersion}"
