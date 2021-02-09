@@ -37,7 +37,7 @@ class DemoQaElements extends TestBase {
     @Test
     @DisplayName("Check if elements page can be opened")
     @Description("Open main page, click on Elements widget and check page is loaded by class .main-header")
-    @Link(name="Main page", url = "/elements")
+    @Severity(SeverityLevel.TRIVIAL)
     void elementsPageIsWorking() {
         parameter("targetUrl", demoqaUrl+"/elements");
         step ("PREP: Open main page", () -> {
@@ -55,6 +55,7 @@ class DemoQaElements extends TestBase {
     @DisplayName("text box test")
     @Story("Automated tests for elementstext boxCheck boxRadio buttonWeb tablesButtonsLinksUpload and downloadDynamic properties")
     @Description("Open elements page, go to text box page click 1st item (home), check Home is checked")
+    @Severity(SeverityLevel.NORMAL)
     void textBoxTest() {
         parameter("targetUrl", demoqaUrl+"/elements");
 
@@ -99,6 +100,7 @@ class DemoQaElements extends TestBase {
     @Story("Automated tests for elementstext boxCheck boxRadio buttonWeb tablesButtonsLinksUpload and downloadDynamic properties")
     @Description("Expand full tree and check Notes, Private and Excel file, " +
             "then assert that #result has these names in the text")
+    @Severity(SeverityLevel.NORMAL)
     void checkBoxSeveralElementsCheck() {
         parameter("targetUrl", demoqaUrl+"/checkbox");
         step ("PREP: Open Check box page ", () -> {
@@ -129,6 +131,7 @@ class DemoQaElements extends TestBase {
     @Test
     @DisplayName("Radio buttons tests")
     @Description("Enable Yes, then Impressive, then check No is disabled")
+    @Severity(SeverityLevel.NORMAL)
     void radioButtonsTests() {
         parameter("targetUrl", demoqaUrl+"/radio-button");
         step ("PREP: Open Radio button page ", () -> {
@@ -159,6 +162,7 @@ class DemoQaElements extends TestBase {
     @Test
     @DisplayName("Web tables line delete test")
     @Description("Delete line for the name from NAME_TO_DELETE variable")
+    @Severity(SeverityLevel.CRITICAL)
     void webTablesDeleteTest() {
         parameter("targetUrl", demoqaUrl+"/webtables");
         final String NAME_TO_DELETE = "Cantrel"; // TODO: make available + NAME_TO_DELETE through System.Properties
@@ -186,6 +190,7 @@ class DemoQaElements extends TestBase {
     @Test
     @DisplayName("Web tables search test")
     @Description("Filter web table by STRING_TO_FILTER_BY, check content by STRING_TO_CHECK")
+    @Severity(SeverityLevel.CRITICAL)
     void webTablesSearchTest() {
         parameter("targetUrl", demoqaUrl+"/webtables");
         final String STRING_TO_FILTER_BY = "Legal"; // TODO: make available STRING_TO_FILTER_BY through System.Properties
@@ -218,6 +223,7 @@ class DemoQaElements extends TestBase {
     @Description("Invoke registration form modal dialogue, " +
             "fill the fields with randomly generated data" +
             "Submit form by pressing Submit button")
+    @Severity(SeverityLevel.BLOCKER)
     void webTablesAddNewRecordTest() {
         parameter("targetUrl", demoqaUrl+"/webtables");
         final String FIRST_NAME = RandomUtils.getRandomString(5);
@@ -274,6 +280,7 @@ class DemoQaElements extends TestBase {
     @Test
     @DisplayName("Buttons tests")
     @Description("Double left click, right click, single left click")
+    @Severity(SeverityLevel.NORMAL)
     void buttonsClicksTests() {
         parameter("targetUrl", demoqaUrl+"/buttons");
         step ("PREP: Open Buttons page ", () -> {
