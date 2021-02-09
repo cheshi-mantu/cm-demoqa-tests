@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-//        mavenCentral()
+        mavenCentral()
         jcenter()
     }
 
@@ -22,7 +22,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
-    allureVersion = '2.13.7'
+    allureVersion = '2.13.8'
     junitVersion = '5.7.0' // 5.7.0
     selenideVersion = "5.17.2"
     restAssuredVersion = "4.3.2"

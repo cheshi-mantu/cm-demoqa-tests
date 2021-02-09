@@ -11,6 +11,7 @@ import static helpers.AttachmentsHelper.attachAsText;
 import static helpers.AttachmentsHelper.attachScreenshot;
 import static helpers.Environment.*;
 
+import static io.qameta.allure.Allure.parameter;
 import static io.qameta.allure.Allure.step;
 
 @Epic("Demo QA - demoqa.com")
@@ -36,7 +37,9 @@ class DemoQaElements extends TestBase {
     @Test
     @DisplayName("Check if elements page can be opened")
     @Description("Open main page, click on Elements widget and check page is loaded by class .main-header")
+    @Link(name="Main page", url = "/elements")
     void elementsPageIsWorking() {
+        parameter("targetUrl", demoqaUrl+"/elements");
         step ("PREP: Open main page", () -> {
             open(demoqaUrl);
         });
@@ -53,6 +56,8 @@ class DemoQaElements extends TestBase {
     @Story("Automated tests for elementstext boxCheck boxRadio buttonWeb tablesButtonsLinksUpload and downloadDynamic properties")
     @Description("Open elements page, go to text box page click 1st item (home), check Home is checked")
     void textBoxTest() {
+        parameter("targetUrl", demoqaUrl+"/elements");
+
         step ("PREP: Open Elements page", () -> {
             open(demoqaUrl + "/elements");
         });
@@ -95,6 +100,7 @@ class DemoQaElements extends TestBase {
     @Description("Expand full tree and check Notes, Private and Excel file, " +
             "then assert that #result has these names in the text")
     void checkBoxSeveralElementsCheck() {
+        parameter("targetUrl", demoqaUrl+"/checkbox");
         step ("PREP: Open Check box page ", () -> {
             open(demoqaUrl + "/checkbox");
         });
@@ -124,6 +130,7 @@ class DemoQaElements extends TestBase {
     @DisplayName("Radio buttons tests")
     @Description("Enable Yes, then Impressive, then check No is disabled")
     void radioButtonsTests() {
+        parameter("targetUrl", demoqaUrl+"/radio-button");
         step ("PREP: Open Radio button page ", () -> {
             open(demoqaUrl + "/radio-button");
         });
@@ -153,6 +160,7 @@ class DemoQaElements extends TestBase {
     @DisplayName("Web tables line delete test")
     @Description("Delete line for the name from NAME_TO_DELETE variable")
     void webTablesDeleteTest() {
+        parameter("targetUrl", demoqaUrl+"/webtables");
         final String NAME_TO_DELETE = "Cantrel"; // TODO: make available + NAME_TO_DELETE through System.Properties
         step ("PREP: Following string is used in the test", () -> {
             attachAsText("NAME_TO_DELETE", NAME_TO_DELETE);
@@ -179,6 +187,7 @@ class DemoQaElements extends TestBase {
     @DisplayName("Web tables search test")
     @Description("Filter web table by STRING_TO_FILTER_BY, check content by STRING_TO_CHECK")
     void webTablesSearchTest() {
+        parameter("targetUrl", demoqaUrl+"/webtables");
         final String STRING_TO_FILTER_BY = "Legal"; // TODO: make available STRING_TO_FILTER_BY through System.Properties
         final String STRING_TO_CHECK = "Gentry"; // TODO: make available STRING_TO_CHECK through System.Properties
         final String STRING_TO_CHECK_IS_ABSENT = "Cantrell"; // TODO: make available STRING_TO_CHECK_IS_ABSENT through System.Properties
@@ -210,6 +219,7 @@ class DemoQaElements extends TestBase {
             "fill the fields with randomly generated data" +
             "Submit form by pressing Submit button")
     void webTablesAddNewRecordTest() {
+        parameter("targetUrl", demoqaUrl+"/webtables");
         final String FIRST_NAME = RandomUtils.getRandomString(5);
         final String LAST_NAME = RandomUtils.getRandomString(12);
         final String EMPLOYEE_EMAIL = FIRST_NAME + "." + LAST_NAME + "@maildomain.com";
@@ -265,6 +275,7 @@ class DemoQaElements extends TestBase {
     @DisplayName("Buttons tests")
     @Description("Double left click, right click, single left click")
     void buttonsClicksTests() {
+        parameter("targetUrl", demoqaUrl+"/buttons");
         step ("PREP: Open Buttons page ", () -> {
             open(demoqaUrl + "/buttons");
         });
