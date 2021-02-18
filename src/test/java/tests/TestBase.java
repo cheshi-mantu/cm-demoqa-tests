@@ -11,13 +11,16 @@ import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 import static helpers.AttachmentsHelper.*;
 import static helpers.DriverHelper.*;
 import static helpers.Environment.isVideoOn;
+import static io.qameta.allure.Allure.step;
 
 public class TestBase {
     @BeforeAll
     public static void setUp() {
-        Configuration.startMaximized = true;
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-        configureSelenide();
+        step("Maximized window, added listener for selenide", () -> {
+            Configuration.startMaximized = true;
+            SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+            configureSelenide();
+        });
     }
     @AfterEach
     public void afterEach(){
