@@ -19,10 +19,6 @@ public class TestBase {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
         configureSelenide();
     }
-    @BeforeEach
-    public void BeforeEachTest(){
-        System.out.println("Hi there");
-    }
     @AfterEach
     public void afterEach(){
         String sessionId = getSessionId();
