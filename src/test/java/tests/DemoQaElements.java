@@ -53,7 +53,6 @@ class DemoQaElements extends TestBase {
 
     @Test
     @DisplayName("text box test")
-    @Story("Automated tests for elementstext boxCheck boxRadio buttonWeb tablesButtonsLinksUpload and downloadDynamic properties")
     @Description("Open elements page, go to text box page click 1st item (home), check Home is checked")
     @Severity(SeverityLevel.NORMAL)
     void textBoxTest() {
@@ -97,7 +96,6 @@ class DemoQaElements extends TestBase {
 
     @Test
     @DisplayName("Checkbox test")
-    @Story("Automated tests for elementstext boxCheck boxRadio buttonWeb tablesButtonsLinksUpload and downloadDynamic properties")
     @Description("Expand full tree and check Notes, Private and Excel file, " +
             "then assert that #result has these names in the text")
     @Severity(SeverityLevel.NORMAL)
