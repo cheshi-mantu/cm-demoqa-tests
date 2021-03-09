@@ -27,7 +27,7 @@ import static io.qameta.allure.Allure.step;
         "Dynamic properties")
 @Tag("elements_tests")
 @Owner("egorivanov")
-@Issue("DEM-1")
+//@Issue("DEM-1")
 class DemoQaElements extends TestBase {
     String fullName = "";
     String email = "";
