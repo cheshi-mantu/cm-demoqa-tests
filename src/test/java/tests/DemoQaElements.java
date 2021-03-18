@@ -282,28 +282,28 @@ class DemoQaElements extends TestBase {
         step ("PREP: Open Buttons page ", () -> {
             open(demoqaUrl + "/buttons");
         });
-        step ("[CHECK:] if Buttons page is properly opened: " +
+        step ("CHECK: if Buttons page is properly opened: " +
                 "main header has text 'Buttons'", () -> {
             $(".main-header").shouldHave(text("Buttons"));
         });
-        step ("[ACT:] Double click the button with text 'Double click me' by id", () -> {
+        step ("ACT: Double click the button with text 'Double click me' by id", () -> {
             $("#doubleClickBtn").doubleClick();
         });
-        step ("[CHECK:] message appeared and contains text 'You have done a double click'", () -> {
+        step ("CHECK: message appeared and contains text 'You have done a double click'", () -> {
             $("#doubleClickMessage").shouldBe(visible);
             $("#doubleClickMessage").shouldHave(text("You have done a double click"));
         });
-        step ("[ACT:] Perform context click for the button with text 'Right click me' by id", () -> {
+        step ("ACT: Perform context click for the button with text 'Right click me' by id", () -> {
             $("#rightClickBtn").contextClick();
         });
-        step ("[CHECK:] message appeared and contains text 'You have done a right click'", () -> {
+        step ("CHECK: message appeared and contains text 'You have done a right click'", () -> {
             $("#rightClickMessage").shouldBe(visible);
             $("#rightClickMessage").shouldHave(text("You have done a right click"));
         });
-        step ("[ACT:] Perform left click for the button with text 'Click me' by text as id is dynamic", () -> {
+        step ("ACT: Perform left click for the button with text 'Click me' by text as id is dynamic", () -> {
             $$("button.btn.btn-primary").findBy(exactText("Click Me")).click();
         });
-        step ("[CHECK:] message appeared and contains text 'You have done a dynamic click'", () -> {
+        step ("CHECK: message appeared and contains text 'You have done a dynamic click'", () -> {
             $("#dynamicClickMessage").shouldBe(visible);
             $("#dynamicClickMessage").shouldHave(text("You have done a dynamic click"));
         });
