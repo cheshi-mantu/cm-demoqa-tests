@@ -16,15 +16,6 @@ import static io.qameta.allure.Allure.step;
 
 @Epic("demoqa.com tests")
 @Feature("Elements")
-@Story("Automated tests for elements" +
-        "text box" +
-        "Check box" +
-        "Radio button" +
-        "Web tables" +
-        "Buttons" +
-        "Links" +
-        "Upload and download" +
-        "Dynamic properties")
 @Tag("elements_tests")
 @Owner("egorivanov")
 class DemoQaElements extends TestBase {
@@ -34,6 +25,7 @@ class DemoQaElements extends TestBase {
     String addressExt = "";
 
     @Test
+    @Story("Common tests")
     @DisplayName("Check if elements page can be opened")
     @Description("Open main page, click on Elements widget and check page is loaded by class .main-header")
     @Severity(SeverityLevel.TRIVIAL)
@@ -51,7 +43,8 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
-    @DisplayName("text box test")
+    @Story("Text box tests")
+    @DisplayName("Text box test - fill, submit, check")
     @Description("Open elements page, go to text box page click 1st item (home), check Home is checked")
     @Severity(SeverityLevel.NORMAL)
     void textBoxTest() {
@@ -94,7 +87,8 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
-    @DisplayName("Checkbox test")
+    @Story("Check-boxes tests")
+    @DisplayName("Check-box test")
     @Description("Expand full tree and check Notes, Private and Excel file, " +
             "then assert that #result has these names in the text")
     @Severity(SeverityLevel.NORMAL)
@@ -126,6 +120,7 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
+    @Story("Radio buttons tests")
     @DisplayName("Radio buttons tests")
     @Description("Enable Yes, then Impressive, then check No is disabled")
     @Severity(SeverityLevel.NORMAL)
@@ -157,6 +152,7 @@ class DemoQaElements extends TestBase {
         });
     }
     @Test
+    @Story("Web tables tests")
     @DisplayName("Web tables line delete test")
     @Description("Delete line for the name from NAME_TO_DELETE variable")
     @Severity(SeverityLevel.CRITICAL)
@@ -185,6 +181,7 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
+    @Story("Web tables tests")
     @DisplayName("Web tables search test")
     @Description("Filter web table by STRING_TO_FILTER_BY, check content by STRING_TO_CHECK")
     @Severity(SeverityLevel.CRITICAL)
@@ -216,6 +213,7 @@ class DemoQaElements extends TestBase {
 
     }
     @Test
+    @Story("Web tables tests")
     @DisplayName("Web table add record")
     @Description("Invoke registration form modal dialogue, " +
             "fill the fields with randomly generated data" +
@@ -275,6 +273,7 @@ class DemoQaElements extends TestBase {
         });
     }
     @Test
+    @Story("Buttons tests")
     @DisplayName("Buttons tests")
     @Description("Double left click, right click, single left click")
     @Severity(SeverityLevel.NORMAL)
