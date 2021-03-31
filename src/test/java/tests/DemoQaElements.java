@@ -10,9 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static helpers.AttachmentsHelper.attachAsText;
 import static helpers.AttachmentsHelper.attachScreenshot;
 import static helpers.Environment.*;
-
-import static io.qameta.allure.Allure.parameter;
-import static io.qameta.allure.Allure.step;
+import static io.qameta.allure.Allure.*;
 
 @Epic("demoqa.com tests")
 @Feature("Elements")
@@ -31,6 +29,7 @@ class DemoQaElements extends TestBase {
     @Severity(SeverityLevel.TRIVIAL)
     void elementsPageIsWorking() {
         parameter("targetUrl", demoqaUrl+"/elements");
+        link("https://demoqa.com", "DemoQA site");
         step ("PREP: Open main page", () -> {
             open(demoqaUrl);
         });
