@@ -70,7 +70,26 @@ public class TestBase {
         });
         step("Empty step - 5", () -> {
             attachAsText("fooText", "@BeforeEach completed successfully");
-        });step("Setting up all the tests", () -> {
+        });
+        step("Setting up all the tests", () -> {
+            System.out.println("This is running before all the tests");
+        });
+        step("Empty step - 6", () -> {
+            attachAsText("fooText", "@BeforeEach completed successfully");
+        });
+        step("Empty step - 5", () -> {
+            attachAsText("fooText", "@BeforeEach completed successfully");
+        });
+        step("Setting up all the tests", () -> {
+            System.out.println("This is running before all the tests");
+        });
+        step("Empty step - 6", () -> {
+            attachAsText("fooText", "@BeforeEach completed successfully");
+        });
+        step("Empty step - 5", () -> {
+            attachAsText("fooText", "@BeforeEach completed successfully");
+        });
+        step("Setting up all the tests", () -> {
             System.out.println("This is running before all the tests");
         });
         step("Empty step - 6", () -> {
@@ -86,23 +105,8 @@ public class TestBase {
         });
         step("Empty step - 5", () -> {
             attachAsText("fooText", "@BeforeEach completed successfully");
-        });step("Setting up all the tests", () -> {
-            System.out.println("This is running before all the tests");
         });
-        step("Empty step - 6", () -> {
-            attachAsText("fooText", "@BeforeEach completed successfully");
-        });
-        step("Empty step - 5", () -> {
-            attachAsText("fooText", "@BeforeEach completed successfully");
-        });step("Setting up all the tests", () -> {
-            System.out.println("This is running before all the tests");
-        });
-        step("Empty step - 6", () -> {
-            attachAsText("fooText", "@BeforeEach completed successfully");
-        });
-        step("Empty step - 5", () -> {
-            attachAsText("fooText", "@BeforeEach completed successfully");
-        });step("Setting up all the tests", () -> {
+        step("Setting up all the tests", () -> {
             System.out.println("This is running before all the tests");
         });
         step("Empty step - 6", () -> {
