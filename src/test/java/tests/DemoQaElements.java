@@ -16,6 +16,7 @@ import static io.qameta.allure.Allure.*;
 @Feature("Elements")
 @Tag("elements_tests")
 @Owner("egorivanov")
+@Link("https://demoqa.com")
 class DemoQaElements extends TestBase {
     String fullName = "";
     String email = "";
