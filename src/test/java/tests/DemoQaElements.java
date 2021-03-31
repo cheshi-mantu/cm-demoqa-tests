@@ -29,7 +29,7 @@ class DemoQaElements extends TestBase {
     @Severity(SeverityLevel.TRIVIAL)
     void elementsPageIsWorking() {
         parameter("targetUrl", demoqaUrl+"/elements");
-        link("https://demoqa.com", "DemoQA site");
+        link("DemoQA site", "https://demoqa.com");
         step ("PREP: Open main page", () -> {
             open(demoqaUrl);
         });
