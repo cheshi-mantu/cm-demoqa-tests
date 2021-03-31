@@ -45,7 +45,7 @@ class DemoQaElements extends TestBase {
     @Test
     @Story("Text box tests")
     @DisplayName("Text box test - fill, submit, check")
-    @Description("Open elements page, go to text box page click 1st item (home), check Home is checked")
+    @Description("Open elements page, go to text box page click 1st item (home), \n check Home is checked")
     @Severity(SeverityLevel.NORMAL)
     void textBoxTest() {
         parameter("targetUrl", demoqaUrl+"/elements");
