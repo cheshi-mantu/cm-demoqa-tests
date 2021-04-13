@@ -16,6 +16,7 @@ import static io.qameta.allure.Allure.*;
 @Feature("Elements")
 @Tag("elements_tests")
 @Owner("egorivanov")
+
 @Link("https://demoqa.com")
 class DemoQaElements extends TestBase {
     String fullName = "";
@@ -25,6 +26,7 @@ class DemoQaElements extends TestBase {
 
     @Test
     @Story("Common tests")
+    @Lead("Trr-cha-cha")
     @DisplayName("Check if elements page can be opened")
     @Description("Open main page, click on Elements widget and check page is loaded by class .main-header")
     @Severity(SeverityLevel.TRIVIAL)
@@ -44,6 +46,7 @@ class DemoQaElements extends TestBase {
 
     @Test
     @Story("Text box tests")
+    @Lead("Trr-cha-cha")
     @DisplayName("Text box test - fill, submit, check")
     @Description("Open elements page, go to text box page click 1st item (home), \n check Home is checked")
     @Severity(SeverityLevel.NORMAL)
@@ -88,6 +91,7 @@ class DemoQaElements extends TestBase {
 
     @Test
     @Story("Check-boxes tests")
+    @Lead("Trr-ha-ha")
     @DisplayName("Check-box test")
     @Description("Expand full tree and check Notes, Private and Excel file, " +
             "then assert that #result has these names in the text")
@@ -120,6 +124,7 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
+    @Lead("Trr-poom-bah")
     @Story("Radio buttons tests")
     @DisplayName("Radio buttons tests")
     @Description("Enable Yes, then Impressive, then check No is disabled")
@@ -152,6 +157,7 @@ class DemoQaElements extends TestBase {
         });
     }
     @Test
+    @Lead("Hafanana")
     @Story("Web tables tests")
     @DisplayName("Web tables line delete test")
     @Description("Delete line for the name from NAME_TO_DELETE variable")
@@ -181,6 +187,7 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
+    @Lead("Trr-cha-cha")
     @Story("Web tables tests")
     @DisplayName("Web tables search test")
     @Description("Filter web table by STRING_TO_FILTER_BY, check content by STRING_TO_CHECK")
@@ -213,6 +220,7 @@ class DemoQaElements extends TestBase {
 
     }
     @Test
+    @Lead("Trr-ha-ha")
     @Story("Web tables tests")
     @DisplayName("Web table add record")
     @Description("Invoke registration form modal dialogue, " +
@@ -273,6 +281,7 @@ class DemoQaElements extends TestBase {
         });
     }
     @Test
+    @Lead("Trr-cha-cha")
     @Story("Buttons tests")
     @DisplayName("Buttons tests")
     @Description("Double left click, right click, single left click")
