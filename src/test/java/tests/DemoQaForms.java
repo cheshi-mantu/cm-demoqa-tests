@@ -1,13 +1,17 @@
 package tests;
 
+import com.codeborne.selenide.Selenide;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import utils.RandomUtils;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import java.io.File;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selenide.*;
 import static helpers.AttachmentsHelper.attachScreenshot;
 import static helpers.Environment.demoqaUrl;
 import static io.qameta.allure.Allure.parameter;
@@ -20,11 +24,15 @@ import static io.qameta.allure.Allure.step;
 
 class DemoQaForms extends TestBase {
 
-    String firstName = "";
-    String lastName = "";
-    String email = "";
-    String address = "";
-    String addressExt = "";
+    String firstName = RandomUtils.getRandomString(7);
+    String lastName = RandomUtils.getRandomString(10);
+    String email = RandomUtils.getRandomEmail();
+    String gender = "Male";
+
+    String phoneNumber = "15555555555";
+    String birthDay = "16 April,1965";
+    String subjectsField = "";
+    String address = "Some street, some house, some building, some appartment";
 
     @Test
     @DisplayName("Forms tests")
@@ -35,9 +43,6 @@ class DemoQaForms extends TestBase {
             parameter("Page URL", demoqaUrl + "/automation-practice-form");
         });
         step ("Fill name and email fields", () -> {
-            firstName = RandomUtils.getRandomString(7);
-            lastName = RandomUtils.getRandomString(10);
-            email = RandomUtils.getRandomEmail();
 
             Allure.addAttachment("First Name", firstName);
             Allure.addAttachment("Last Name", lastName);
@@ -49,16 +54,58 @@ class DemoQaForms extends TestBase {
             $(":focus").pressTab();
             $("#userEmail").val(email);
         });
-//        step ("Fill name fields", () -> {
-//            firstName = RandomUtils.getRandomString(7);
-//            lastName = RandomUtils.getRandomString(10);
-//            Allure.addAttachment("First Name", firstName);
-//            Allure.addAttachment("Last Name", lastName);
-//            $("#firstName").val(firstName);
-//            $(":focus").pressTab();
-//            $(":focus").val(lastName);
-//        });
+        step ("Fill gender information", () -> {
+            Allure.addAttachment("Selecting gender", "Male");
+            $("#gender-radio-1").sibling(0).click();
+        });
+        step ("Fill phone number information", () -> {
+                    Allure.addAttachment("Phone number", phoneNumber);
+                    $("#userNumber").val(phoneNumber);
+                    $(":focus").pressTab();
+        });
+        step ("Fill the birth date information", () -> {
+            Allure.addAttachment("Birth date", birthDay);
+            $("#dateOfBirthInput").click();
+            $(".react-datepicker__year-select").$(by("value", "1965")).click();
+            $(".react-datepicker__month-select").$(byText("April")).click();
+            $(".react-datepicker__day--016").click();
+        });
+        step ("Fill subjects", () -> {
+            subjectsField = "Computer Science";
+            Allure.addAttachment("Subjects", subjectsField);
+            $("#subjectsContainer").click();
+            $(":focus").val("C");
+            $(byText(subjectsField)).click();
+        });
+        step ("Fill hobbies", () -> {
+            Allure.addAttachment("Hobby", "Reading");
+            $("#hobbies-checkbox-2").sibling(0).click();
+        });
+        step ("File upload test", () -> {
+            File uploadFile = new File("./src/test/resources/files/upload.png");
+            $("#uploadPicture").uploadFile(uploadFile);
+        });
+        step ("Fill current address", () -> {
+            Allure.addAttachment("Address", address);
+            $("#currentAddress").val(address);
+        });
+        step ("Select the state", () -> {
+            Allure.addAttachment("State", "Uttar Pradesh");
+            $("#state").click();
+            $(byText( "Uttar Pradesh")).click();
+        });
+        step ("Select the City", () -> {
+            Allure.addAttachment("City", "Agra");
+            $("#city").click();
+            $(byText( "Agra")).click();
+        });
+        step ("Submit the form", () -> {
+            $("#submit").click();
+        });
 
+
+
+        sleep(5000);
     }
 
 }
