@@ -18,7 +18,8 @@ import static io.qameta.allure.Allure.parameter;
 import static io.qameta.allure.Allure.step;
 
 @Epic("demoqa.com tests")
-@Feature("Elements")
+@Feature("Forms")
+@Story("Fill all form fields, submit and check")
 @Owner("egorivanov")
 @Tag("form_tests")
 
