@@ -93,6 +93,7 @@ class DemoQaForms extends TestBase {
         });
         step ("Fill current address", () -> {
             Allure.addAttachment("Address", address);
+            parameter("Address", address);
             $("#currentAddress").val(address);
         });
         step ("Select the state", () -> {
