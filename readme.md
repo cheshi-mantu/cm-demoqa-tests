@@ -4,9 +4,9 @@
 - Selenoid 
 - Allure
 ## tests for demoqa.com
-- Elements
-- Forms
-- Alerts, Frames and windows
-- Widgets
-- Interactions
-- Tests for bookstore application
+- Elements - yep
+- Forms - yep
+- Alerts, Frames and windows - WIP
+- Widgets - WIP
+- Interactions - WIP
+- Tests for bookstore application - WIP

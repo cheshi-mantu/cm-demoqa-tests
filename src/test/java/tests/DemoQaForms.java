@@ -26,13 +26,16 @@ class DemoQaForms extends TestBase {
 
     String firstName = RandomUtils.getRandomString(7);
     String lastName = RandomUtils.getRandomString(10);
-    String email = RandomUtils.getRandomEmail();
+    String email = firstName + "." + lastName + "@email.xyz";
+
     String gender = "Male";
 
-    String phoneNumber = "15555555555";
+    String phoneNumber = "1234567890";
     String birthDay = "16 April,1965";
-    String subjectsField = "";
+    String subjectsField = "Computer Science";
     String address = "Some street, some house, some building, some appartment";
+    String addressState = "Uttar Pradesh";
+    String addressCity = "Agra";
 
     @Test
     @DisplayName("Forms tests")
@@ -71,7 +74,7 @@ class DemoQaForms extends TestBase {
             $(".react-datepicker__day--016").click();
         });
         step ("Fill subjects", () -> {
-            subjectsField = "Computer Science";
+
             Allure.addAttachment("Subjects", subjectsField);
             $("#subjectsContainer").click();
             $(":focus").val("C");
@@ -101,6 +104,20 @@ class DemoQaForms extends TestBase {
         });
         step ("Submit the form", () -> {
             $("#submit").click();
+        });
+        step ("[ASSERT] Modal table body contains name", () -> {
+            $(".modal-body").shouldHave(text(firstName));
+        });
+        step ("[ASSERT] Modal table body contains name", () -> {
+            $(".modal-body").shouldHave(text(lastName));
+            $(".modal-body").shouldHave(text(email));
+            $(".modal-body").shouldHave(text(phoneNumber));
+            $(".modal-body").shouldHave(text(gender));
+            $(".modal-body").shouldHave(text(birthDay));
+            $(".modal-body").shouldHave(text(subjectsField));
+            $(".modal-body").shouldHave(text(address));
+            $(".modal-body").shouldHave(text(addressState));
+            $(".modal-body").shouldHave(text(addressCity));
         });
 
 
