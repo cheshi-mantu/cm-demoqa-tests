@@ -38,7 +38,7 @@ class DemoQaForms extends TestBase {
     String addressCity = "Agra";
 
     @Test
-    @DisplayName("Forms tests")
+    @DisplayName("Form filling tests")
     @Description("Open forms page, make tests for filling forms and checks")
     void formTest() {
         step ("Open form training page", () -> {
@@ -59,15 +59,17 @@ class DemoQaForms extends TestBase {
         });
         step ("Fill gender information", () -> {
             Allure.addAttachment("Selecting gender", "Male");
+            parameter("gender", "Male");
             $("#gender-radio-1").sibling(0).click();
         });
         step ("Fill phone number information", () -> {
-                    Allure.addAttachment("Phone number", phoneNumber);
-                    $("#userNumber").val(phoneNumber);
-                    $(":focus").pressTab();
+            Allure.addAttachment("Phone number", phoneNumber);
+            $("#userNumber").val(phoneNumber);
+            $(":focus").pressTab();
         });
         step ("Fill the birth date information", () -> {
             Allure.addAttachment("Birth date", birthDay);
+            parameter("Birth day", birthDay);
             $("#dateOfBirthInput").click();
             $(".react-datepicker__year-select").$(by("value", "1965")).click();
             $(".react-datepicker__month-select").$(byText("April")).click();
@@ -107,8 +109,6 @@ class DemoQaForms extends TestBase {
         });
         step ("[ASSERT] Modal table body contains name", () -> {
             $(".modal-body").shouldHave(text(firstName));
-        });
-        step ("[ASSERT] Modal table body contains name", () -> {
             $(".modal-body").shouldHave(text(lastName));
             $(".modal-body").shouldHave(text(email));
             $(".modal-body").shouldHave(text(phoneNumber));
@@ -119,10 +119,6 @@ class DemoQaForms extends TestBase {
             $(".modal-body").shouldHave(text(addressState));
             $(".modal-body").shouldHave(text(addressCity));
         });
-
-
-
-        sleep(5000);
     }
 
 }
