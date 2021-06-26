@@ -99,6 +99,7 @@ class DemoQaForms extends TestBase {
         step ("Select the state", () -> {
             Allure.addAttachment("State", "Uttar Pradesh");
             parameter("Address - State", addressState);
+            $("#state").scrollIntoView(false);
             $("#state").click();
             $(byText( "Uttar Pradesh")).click();
         });
