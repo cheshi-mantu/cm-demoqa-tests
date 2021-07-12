@@ -35,5 +35,5 @@ target/
 .settings/org.eclipse.buildship.core.prefs
 .vscode
 .allure/
-gradlew*
-gradle-wrapper.properties
+!gradlew*
+!gradle-wrapper.properties
