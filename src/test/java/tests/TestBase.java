@@ -42,7 +42,7 @@ public class TestBase {
         String sessionId = getSessionId();
         attachScreenshot("Last screenshot");
         attachPageSource();
-        attachAsText("Browser console logs", getConsoleLogs());
+//        attachAsText("Browser console logs", getConsoleLogs());
         closeWebDriver();
         if (isVideoOn) attachVideo(sessionId);
     }

@@ -25,6 +25,7 @@ class DemoQaElements extends TestBase {
     String addressExt = "";
 
     @Test
+    @AllureId("-1")
     @Story("Common tests")
     @Lead("Trr-cha-cha")
     @DisplayName("Check if elements page can be opened")
@@ -45,6 +46,7 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
+    @AllureId("-1")
     @Story("Text box tests")
     @Lead("Trr-cha-cha")
     @DisplayName("Text box test - fill, submit, check")
@@ -90,6 +92,7 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
+    @AllureId("-1")
     @Story("Check-boxes tests")
     @Lead("Trr-ha-ha")
     @DisplayName("Check-box test")
@@ -124,6 +127,7 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
+    @AllureId("-1")
     @Lead("Trr-poom-bah")
     @Story("Radio buttons tests")
     @DisplayName("Radio buttons tests")
@@ -157,6 +161,7 @@ class DemoQaElements extends TestBase {
         });
     }
     @Test
+    @AllureId("-1")
     @Lead("Hafanana")
     @Story("Web tables tests")
     @DisplayName("Web tables line delete test")
@@ -187,6 +192,7 @@ class DemoQaElements extends TestBase {
     }
 
     @Test
+    @AllureId("-1")
     @Lead("Trr-cha-cha")
     @Story("Web tables tests")
     @DisplayName("Web tables search test")
@@ -220,6 +226,7 @@ class DemoQaElements extends TestBase {
 
     }
     @Test
+    @AllureId("-1")
     @Lead("Trr-ha-ha")
     @Story("Web tables tests")
     @DisplayName("Web table add record")
@@ -281,6 +288,7 @@ class DemoQaElements extends TestBase {
         });
     }
     @Test
+    @AllureId("-1")
     @Lead("Trr-cha-cha")
     @Story("Buttons tests")
     @DisplayName("Buttons tests")

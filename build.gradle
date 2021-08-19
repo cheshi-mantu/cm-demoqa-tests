@@ -16,7 +16,7 @@ plugins {
     id 'io.qameta.allure' version '2.8.1'
 }
 
-group 'xyz.egorivanov'
+group 'com.github.cheshi-mantu'
 version '1.0'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
