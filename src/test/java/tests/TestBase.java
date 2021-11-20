@@ -15,7 +15,7 @@ import static io.qameta.allure.Allure.step;
 
 public class TestBase {
     @BeforeAll
-    public static void setUp() {
+    public static void setUpBeforeAll() {
         step("Maximized window, added listener for selenide", () -> {
             Configuration.startMaximized = true;
             SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
@@ -24,16 +24,8 @@ public class TestBase {
     }
 
     @BeforeEach
-    public void BeforeEachAndEveryTest() {
-        step("Emppty step - 5", () -> {
-            attachAsText("fooText", "@BeforeEach completed successfully");
-        });step("Setting up all the tests", () -> {
-            System.out.println("This is running before all the tests");
-        });
-        step("Empty step - 6", () -> {
-            attachAsText("fooText", "@BeforeEach completed successfully");
-        });
-
+    public void setUpEach() {
+        step("Dummy before each");
     }
 
 
